@@ -18,14 +18,15 @@ build:
   dynamic_linking:
     missing_dso_allowlist:
       - if: win
-        then: "**/cx_Logging.*.pyd"
+        then:
+          - "**/cx_Logging.*.pyd"
 
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
+      then:
+        - python
+        - cross-python_${{ target_platform }}
     - ${{ compiler("c") }}
     - ${{ stdlib("c") }}
   host:
@@ -33,16 +34,18 @@ requirements:
     - pip
     - setuptools >=78.1.1,<81
     - if: win
-      then: cx_logging >=3.1
+      then:
+        - cx_logging >=3.1
   run:
     - python
     - filelock >=3.15.3
     - if: win
-      then: cabarchive >=0.2.4
-    - if: win
-      then: striprtf >=0.0.26
+      then:
+        - cabarchive >=0.2.4
+        - striprtf >=0.0.26
     - if: linux and match(python, "<3.11")
-      then: libxcrypt
+      then:
+        - libxcrypt
 
 tests:
   - python:
@@ -66,7 +69,9 @@ about:
   license: MIT
   license_file: LICENSE
   summary: Core dependency for cx_Freeze.
-  homepage: https://marcelotduarte.github.io/cx_Freeze
+  homepage: https://github.com/marcelotduarte/freeze-core
+  dev_url: https://marcelotduarte.github.io/cx_Freeze
+  documentation: https://cx-freeze.readthedocs.io/
 
 extra:
   recipe-maintainers:
