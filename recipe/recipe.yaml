@@ -69,8 +69,8 @@ about:
   license: MIT
   license_file: LICENSE
   summary: Core dependency for cx_Freeze.
-  homepage: https://github.com/marcelotduarte/freeze-core
-  dev_url: https://marcelotduarte.github.io/cx_Freeze
+  repository: https://github.com/marcelotduarte/freeze-core
+  homepage: https://marcelotduarte.github.io/cx_Freeze
   documentation: https://cx-freeze.readthedocs.io/
 
 extra:
