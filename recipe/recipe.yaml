@@ -13,7 +13,7 @@ source:
   sha256: 6178c3e40cda56b41187452cfd60347c343db067a4f6a157196e634050a5fe57
 
 build:
-  number: 0
+  number: 1
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     missing_dso_allowlist:
