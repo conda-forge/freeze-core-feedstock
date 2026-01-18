@@ -33,7 +33,7 @@ requirements:
     - python
     - pip
     - setuptools >=78.1.1,<81
-    - if: win and not match(python, "==3.14t.*")
+    - if: win and not match(python, "==3.14t")
       then:
         - cx_logging >=3.2
   run:
