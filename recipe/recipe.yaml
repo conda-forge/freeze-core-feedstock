@@ -33,7 +33,7 @@ requirements:
     - python
     - pip
     - setuptools >=78.1.1,<81
-    - if: win and not is_freethreading
+    - if: win and not match(python, "3.14.* *_cp314t")
       then:
         - cx_logging >=3.2
   run:
