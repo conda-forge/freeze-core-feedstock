@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: freeze-core
-  version: "0.6.1"
-  sha256: 819642aa58b4e2c19e1ade025d9563e437c07c90fe6ac5c891e8ecee2044a2ef
+  version: "0.7.0.post1"
+  sha256: a163559b13105f215a7cd7d3215770186a687817852ba9c5d7c200644a820edc
 
 package:
   name: ${{ name|lower }}
@@ -15,6 +15,7 @@ source:
 
 build:
   number: 0
+  skip: match(python, "<3.11")
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     missing_dso_allowlist:
@@ -33,7 +34,7 @@ requirements:
   host:
     - python
     - pip
-    - setuptools >=78.1.1,<=82
+    - setuptools >=78.1.1,<84
     - if: win
       then:
         - cx_logging >=3.2
@@ -44,9 +45,7 @@ requirements:
       then:
         - cabarchive >=0.2.4
         - striprtf >=0.0.26
-    - if: linux and match(python, "<3.11")
-      then:
-        - libxcrypt
+    - setuptools >=78.1.1,<84
 
 tests:
   - python:
@@ -59,7 +58,11 @@ tests:
     requirements:
       run:
         - coverage >=7.10.3
-        - pytest >=9.0.2
+        - pytest >=9.0.3
+        - if: not win
+          then:
+            - cabarchive >=0.2.4
+            - striprtf >=0.0.26
     script:
       - coverage run
 
