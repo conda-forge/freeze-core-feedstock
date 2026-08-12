@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: freeze-core
-  version: "0.7.0.post1"
-  sha256: a163559b13105f215a7cd7d3215770186a687817852ba9c5d7c200644a820edc
+  version: "0.7.1"
+  sha256: 5b7a7aceb94b946d613d0ec4f348aa3c692b5834c458c83da517756da43fd74e
 
 package:
   name: ${{ name|lower }}
@@ -34,7 +34,7 @@ requirements:
   host:
     - python
     - pip
-    - setuptools >=78.1.1,<84
+    - setuptools >=78.1.1,<85
     - if: win
       then:
         - cx_logging >=3.2
@@ -45,7 +45,6 @@ requirements:
       then:
         - cabarchive >=0.2.4
         - striprtf >=0.0.26
-    - setuptools >=78.1.1,<84
 
 tests:
   - python:
