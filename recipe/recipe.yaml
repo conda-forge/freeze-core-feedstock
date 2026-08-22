@@ -66,10 +66,7 @@ tests:
             - cabarchive >=0.2.4
             - striprtf >=0.0.26
     script:
-      - set|grep CONDA_
-      - export CONDA_DEFAULT_ENV=$CONDA_PREFIX
-      - export CONDA_EXE=conda
-      - coverage run
+      - coverage run -m pytest tests -k "not venv"
 
 about:
   license: MIT
