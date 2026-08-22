@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: freeze-core
-  version: "0.7.1"
-  sha256: 5b7a7aceb94b946d613d0ec4f348aa3c692b5834c458c83da517756da43fd74e
+  version: "0.7.2"
+  sha256: b1dfa43f88e472ff153dc5bb88bb343d1fb875f5ddfb390fe13aca657e0e894a
 
 package:
   name: ${{ name|lower }}
@@ -16,7 +16,7 @@ source:
 build:
   number: 0
   skip: match(python, "<3.11")
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: python -m pip install . -vv --no-deps --no-build-isolation
   dynamic_linking:
     missing_dso_allowlist:
       - if: win
@@ -45,6 +45,9 @@ requirements:
       then:
         - cabarchive >=0.2.4
         - striprtf >=0.0.26
+    - if: linux
+      then:
+        - libxcrypt
 
 tests:
   - python:
@@ -56,14 +59,14 @@ tests:
         - tests
     requirements:
       run:
-        - coverage >=7.10.3
+        - coverage >=7.13.0
         - pytest >=9.0.3
         - if: not win
           then:
             - cabarchive >=0.2.4
             - striprtf >=0.0.26
     script:
-      - coverage run
+      - coverage run -m pytest tests -k "not venv"
 
 about:
   license: MIT
