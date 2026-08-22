@@ -67,7 +67,7 @@ tests:
             - striprtf >=0.0.26
     script:
       - export CONDA_DEFAULT_ENV=$CONDA_PREFIX
-      - coverage run -m pytest tests -k "not venv"
+      - coverage run
 
 about:
   license: MIT
