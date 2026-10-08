@@ -70,7 +70,7 @@ tests:
             - cabarchive >=0.2.4
             - striprtf >=0.0.26
     script:
-      - if: match(python, "<3.15")
+      - if: match(python, "<3.15") and target_platform not in ["linux-aarch64", "linux-ppc64le"]
         then:
           - conda install "cx_freeze>=8.6.4" --only-deps -y
           - conda install "cx_freeze>=8.7.0" --no-deps -y
