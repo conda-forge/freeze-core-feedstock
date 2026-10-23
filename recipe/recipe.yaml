@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: freeze-core
-  version: "0.8.0"
-  sha256: 6a094108367cb9d91ad41b2ee751627dfdbfbc0ba6e278243bae99cf9fb87343
+  version: "0.8.1"
+  sha256: 89c430459498fb00bcb296de60c56160d8d92d3ccd6f4b53f087f3ac0393ca5e
 
 package:
   name: ${{ name|lower }}
